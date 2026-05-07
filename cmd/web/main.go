@@ -72,3 +72,15 @@ func openDB(dsn string) (*sql.DB, error) {
 
 	return db, nil
 }
+
+//func dd(w http.ResponseWriter, v any) {
+//	w.Header().Set("Content-Type", "application/json")
+//
+//	b, err := json.MarshalIndent(v, "", "  ")
+//	if err != nil {
+//		fmt.Fprintf(w, "%#v", v)
+//		return
+//	}
+//
+//	w.Write(b)
+//}
