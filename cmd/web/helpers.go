@@ -62,12 +62,11 @@ func (app *application) render(w http.ResponseWriter, r *http.Request, status in
 	buf.WriteTo(w)
 }
 
-// Create a newTemplateData() helper, which returns a templateData struct
-// initialized with the current year. Note that we're not using the *http.Request
-// parameter here at the moment, but we will use it later in the book.
 func (app *application) newTemplateData(r *http.Request) templateData {
 	return templateData{
 		CurrentYear: time.Now().Year(),
+		// Add the flash message to the template data, if one exists.
+		Flash: app.sessionManager.PopString(r.Context(), "flash"),
 	}
 }
 
